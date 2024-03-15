@@ -60,7 +60,7 @@ const MovieDetails = () => {
         }
       );
       if (!res.ok) {
-        const errorData = await response.json();
+        const errorData = await res.json();
         throw new Error(
           `HTTP error! status: ${res.status}, message: ${errorData.message}`
         );
