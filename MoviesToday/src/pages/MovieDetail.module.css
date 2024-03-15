@@ -1,0 +1,49 @@
+.metascore {
+  background-color: yellow;
+  padding: 5px;
+  border-radius: 20px;
+  width: 130px;
+  text-align: center;
+}
+
+.metascoreno {
+  font-weight: 800;
+}
+
+.runtime {
+  display: inline;
+}
+
+.moviecontainer {
+  margin-top: 50px;
+  display: flex;
+}
+
+.movieposter {
+  flex: 0 0 auto; /* Don't grow or shrink, maintain initial size */
+}
+
+.moviedetails {
+  margin-left: 20px; /* Adjust margin as needed */
+}
+
+.movieplot {
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+.imdbrating {
+  background-color: skyblue;
+  padding: 5px;
+  border-radius: 20px;
+  width: 150px;
+  text-align: center;
+}
+
+.imdbratingno {
+  font-weight: 800;
+}
+
+.position {
+  margin-bottom: 30px;
+}
