@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import NotesModal from "../components/NotesModal";
 
 const FavouritesDisplay = ({ favourites, unfavourite }) => {
   const [showNotesModal, setShowNotesModal] = useState(false);
