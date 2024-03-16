@@ -70,7 +70,7 @@ const Notes = (props) => {
 };
 
 const NotesModal = (props) => {
-  const [updatedNotes, setUpdatedNotes] = useState(props.notes);
+  const [updatedNotes, setUpdatedNotes] = useState(props.notes || "");
 
   const handleNotesUpdate = (newNotes) => {
     setUpdatedNotes(newNotes);

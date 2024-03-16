@@ -8,7 +8,7 @@ const Favourites = () => {
   const fetchFavourites = async (signal) => {
     try {
       const res = await fetch(
-        "https://api.airtable.com/v0/appWunuVeHtLUeYu4/Table%201?maxRecords=3&view=Grid%20view",
+        "https://api.airtable.com/v0/appWunuVeHtLUeYu4/Table%201?maxRecords=10&view=Grid%20view",
         {
           signal,
 
