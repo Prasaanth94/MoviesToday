@@ -10,11 +10,17 @@
 
 .modal {
   position: fixed;
-  background: rgba(255, 255, 255);
+  background: rgba(255, 255, 255, 0.3);
   top: 30vh;
-  bottom: 40vh;
+  bottom: 10vh;
   left: 30%;
   width: 50%;
   z-index: 100;
   overflow: hidden;
+}
+
+.notesDisplay {
+  align-items: center;
+  height: 50%;
+  width: 90%;
 }

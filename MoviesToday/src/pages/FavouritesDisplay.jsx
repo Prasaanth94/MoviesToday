@@ -3,7 +3,19 @@ import { Link } from "react-router-dom";
 import NotesModal from "../components/NotesModal";
 
 const FavouritesDisplay = ({ favourites, unfavourite }) => {
+  const airtable_apiKey = import.meta.env.VITE_AIRTABLE_API_KEY;
+
   const [showNotesModal, setShowNotesModal] = useState(false);
+  //state to track the id of the movie selected
+  const [selectedMovieId, setSelectedMovieId] = useState(null);
+
+  const openNotesModal = (record) => {
+    //setting the id of the movie from the noted buttton of he movie clicked
+    setSelectedMovieId(record.id);
+
+    setShowNotesModal(true);
+  };
+
   if (favourites === null) {
     return <div>Loading...</div>;
   }
@@ -36,12 +48,17 @@ const FavouritesDisplay = ({ favourites, unfavourite }) => {
               >
                 unfavourite
               </button>
-              <button onClick={() => setShowNotesModal(true)}>Notes</button>
+              {/* on click passes the record in to the openNoteModal function to help set correspodin data */}
+              <button onClick={() => openNotesModal(record)}>Notes</button>
             </div>
-            {showNotesModal && (
+            {showNotesModal && selectedMovieId === record.id && (
               <NotesModal
                 title={record.fields.movie_name}
                 recordId={record.id}
+                notes={record.fields.notes}
+                movie_img={record.fields.movie_img}
+                imdb_id={record.fields.imdb_id}
+                airtable_apiKey={airtable_apiKey}
                 setShowNotesModal={setShowNotesModal}
               ></NotesModal>
             )}
