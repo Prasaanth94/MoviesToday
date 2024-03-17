@@ -9,18 +9,47 @@
 }
 
 .modal {
-  position: fixed;
   background: rgba(255, 255, 255, 0.3);
-  top: 30vh;
-  bottom: 10vh;
-  left: 30%;
-  width: 50%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 70%;
   z-index: 100;
   overflow: hidden;
 }
 
 .notesDisplay {
+  position: fixed;
   align-items: center;
   height: 50%;
   width: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+}
+
+.updateButton {
+  position: inherit;
+  top: 80%;
+  left: 45%;
+}
+
+.title {
+  margin-top: 25px;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1%;
+  left: 95%;
+  background: transparent;
+  outline: none;
+}
+
+.closeButton:hover {
+  transform: scale(1.2);
+  transition: transform 0.5s ease;
 }

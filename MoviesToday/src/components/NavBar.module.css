@@ -1,6 +1,6 @@
 .navbar {
   height: 5rem;
-  background-color: red;
+  background-color: rgb(122, 31, 37);
 }
 .navbar nav {
   height: 100%;
@@ -12,7 +12,8 @@
   padding: 0;
   margin: 0;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  font-size: 2rem;
 }
 .navbar li {
   margin: 0 1rem;

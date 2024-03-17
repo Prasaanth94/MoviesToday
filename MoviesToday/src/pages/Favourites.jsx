@@ -48,6 +48,7 @@ const Favourites = () => {
         setFavourites((prevFavourites) =>
           prevFavourites.filter((record) => record.id !== recordId)
         );
+        window.alert("Movie removed from favourites");
       }
     } catch (error) {
       console.error("Error deleting record:", error);

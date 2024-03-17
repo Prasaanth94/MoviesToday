@@ -55,7 +55,7 @@ const MovieDetails = () => {
 
       // If the movie already exists, display a message
       if (data?.records.length > 0) {
-        console.log("Movie already exists in favorites");
+        window.alert("Movie already exists in favorites");
         return; // Exit function
       }
 
@@ -87,7 +87,7 @@ const MovieDetails = () => {
         throw new Error("Failed to add movie to favorites");
       }
 
-      console.log("Movie added to favorites successfully");
+      window.alert("Movie added to Favourites");
     } catch (error) {
       console.error("There was an error!", error);
     }
@@ -128,7 +128,12 @@ const MovieDetails = () => {
               <p>Rated: {movieDetails.Rated}</p>
               <p>Released: {movieDetails.Released}</p>
 
-              <button onClick={addToFavourites}>Favourite</button>
+              <button
+                onClick={addToFavourites}
+                className={styles.favouriteButton}
+              >
+                Favourite
+              </button>
             </div>
           </div>
           {/* Add more details as needed */}

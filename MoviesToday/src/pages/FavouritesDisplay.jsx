@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import NotesModal from "../components/NotesModal";
+import styles from "./FavouritesDisplay.module.css";
 
 const FavouritesDisplay = ({ favourites, unfavourite }) => {
   const airtable_apiKey = import.meta.env.VITE_AIRTABLE_API_KEY;
@@ -26,7 +27,11 @@ const FavouritesDisplay = ({ favourites, unfavourite }) => {
     <>
       <div>
         {favourites.map((record, index) => (
-          <div key={index} className="card" style={{ width: 18 + "rem" }}>
+          <div
+            key={index}
+            className={`card ${styles.favouriteCard}`}
+            style={{ width: 18 + "rem" }}
+          >
             <img
               src={record.fields.movie_img}
               className="card-img-top"
@@ -39,7 +44,7 @@ const FavouritesDisplay = ({ favourites, unfavourite }) => {
                   record.fields.imdb_id
                 )}`}
               >
-                <button>See Details</button>
+                <button>Details</button>
               </Link>
               <button
                 onClick={() => {

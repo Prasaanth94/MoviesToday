@@ -57,7 +57,6 @@ const MovieSearch = () => {
             value={searchValue}
             onChange={(event) => setSearchValue(event.target.value)}
           ></input>
-          <div className={styles.label}>Search Movie</div>
         </div>
       </div>
       <div className={styles.horizontal}>

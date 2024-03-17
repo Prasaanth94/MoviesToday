@@ -50,3 +50,14 @@
   margin-bottom: 30px;
   color: white;
 }
+
+.favouriteButton {
+  border: none;
+  background-color: rgb(10, 157, 173);
+}
+
+.favouriteButton:hover {
+  transform: scale(1.2);
+  transition: transform 0.2s ease-in;
+  color: white;
+}

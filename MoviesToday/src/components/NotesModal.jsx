@@ -45,23 +45,24 @@ const Notes = (props) => {
   return (
     <div className={styles.backdrop}>
       <div className={styles.modal}>
-        <h1>{props.title}</h1>
-        <input
+        <h1 className={styles.title}>{props.title}</h1>
+        <textarea
           className={styles.notesDisplay}
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
           ref={updateNotesRef}
           type="text"
-        ></input>
-        <button
-          className="col-md-3"
+        ></textarea>
+
+        <i
+          className={`fa fa-window-close fa-2x ${styles.closeButton}`}
+          aria-hidden="true"
           onClick={() => {
             props.setShowNotesModal(false);
           }}
-        >
-          cancel
-        </button>
-        <button className="col-md-3" onClick={updateNotes}>
+        ></i>
+
+        <button className={styles.updateButton} onClick={updateNotes}>
           Update
         </button>
       </div>
