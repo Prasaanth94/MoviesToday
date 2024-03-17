@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState, useRef } from "react";
 import Cards from "../components/Cards";
+import styles from "./MoviesSearch.module.css";
 
 const MovieSearch = () => {
   const [searchMovies, setSearchMovies] = useState([]);
@@ -33,10 +34,6 @@ const MovieSearch = () => {
     setIsLoading(false);
   };
 
-  const printData = () => {
-    console.log(searchMovies);
-  };
-
   useEffect(() => {
     if (searchValue.trim() !== "") {
       getData(searchValue);
@@ -51,16 +48,23 @@ const MovieSearch = () => {
   }, [searchValue]);
   return (
     <>
-      <input
-        type="text"
-        placeholder="Search Movie..."
-        value={searchValue}
-        onChange={(event) => setSearchValue(event.target.value)}
-      ></input>
-      <button onClick={printData}>print</button>
-      {searchMovies.map((movie, index) => {
-        return <Cards movieData={movie} key={index}></Cards>;
-      })}
+      <div className={`container ${styles.searchDiv}`}>
+        <div className={styles.inputArea}>
+          <input
+            className={styles.searchInput}
+            type="text"
+            placeholder="Search Movie..."
+            value={searchValue}
+            onChange={(event) => setSearchValue(event.target.value)}
+          ></input>
+          <div className={styles.label}>Search Movie</div>
+        </div>
+      </div>
+      <div className={styles.horizontal}>
+        {searchMovies.map((movie, index) => {
+          return <Cards movieData={movie} key={index}></Cards>;
+        })}
+      </div>
     </>
   );
 };

@@ -1,0 +1,19 @@
+#cardBodySize {
+  width: 288px;
+  height: 93px;
+}
+
+.cardTop {
+  margin-top: 15px;
+}
+
+.cardBody {
+  background-color: rgb(46, 44, 56);
+  color: white;
+  min-width: 280px;
+  min-height: 93px;
+}
+
+.cardSize {
+  height: 559;
+}

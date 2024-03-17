@@ -37,7 +37,30 @@ const MovieDetails = () => {
 
   const addToFavourites = async () => {
     try {
+      // Query Airtable to see if he movie is already in the favourites database
       const res = await fetch(
+        `https://api.airtable.com/v0/appWunuVeHtLUeYu4/Table%201?filterByFormula={imdb_id}='${movieDetails.imdbID}'`,
+        {
+          headers: {
+            Authorization: `Bearer ${airtable_apiKey}`,
+          },
+        }
+      );
+
+      if (!res.ok) {
+        throw new Error("Failed to check if movie exists in favorites");
+      }
+
+      const data = await res.json();
+
+      // If the movie already exists, display a message
+      if (data?.records.length > 0) {
+        console.log("Movie already exists in favorites");
+        return; // Exit function
+      }
+
+      // If the movie does not exist, add it to the Airtable
+      const addResponse = await fetch(
         "https://api.airtable.com/v0/appWunuVeHtLUeYu4/Table%201",
         {
           method: "POST",
@@ -59,12 +82,12 @@ const MovieDetails = () => {
           }),
         }
       );
-      if (!res.ok) {
-        const errorData = await res.json();
-        throw new Error(
-          `HTTP error! status: ${res.status}, message: ${errorData.message}`
-        );
+
+      if (!addResponse.ok) {
+        throw new Error("Failed to add movie to favorites");
       }
+
+      console.log("Movie added to favorites successfully");
     } catch (error) {
       console.error("There was an error!", error);
     }

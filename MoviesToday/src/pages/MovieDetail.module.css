@@ -4,6 +4,7 @@
   border-radius: 20px;
   width: 130px;
   text-align: center;
+  color: black;
 }
 
 .metascoreno {
@@ -38,6 +39,7 @@
   border-radius: 20px;
   width: 150px;
   text-align: center;
+  color: black;
 }
 
 .imdbratingno {
@@ -46,4 +48,5 @@
 
 .position {
   margin-bottom: 30px;
+  color: white;
 }
