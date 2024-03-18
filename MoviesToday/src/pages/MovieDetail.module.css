@@ -10,7 +10,12 @@
 .metascoreno {
   font-weight: 800;
 }
-
+.cardBody {
+  background-color: rgb(46, 44, 56);
+  color: white;
+  min-width: 280px;
+  min-height: 93px;
+}
 .runtime {
   display: inline;
 }
@@ -50,7 +55,6 @@
   margin-bottom: 30px;
   color: white;
 }
-
 .favouriteButton {
   border: none;
   background-color: rgb(10, 157, 173);
@@ -59,5 +63,9 @@
 .favouriteButton:hover {
   transform: scale(1.2);
   transition: transform 0.2s ease-in;
-  color: white;
+  color: yellow;
+}
+
+.favouriteButton:hover .star {
+  fill: yellow;
 }
