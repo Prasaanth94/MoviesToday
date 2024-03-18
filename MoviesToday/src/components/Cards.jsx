@@ -3,23 +3,6 @@ import { Link } from "react-router-dom";
 import styles from "./Cards.module.css";
 
 const Cards = ({ movieData }) => {
-  // const cardTitleRef = useRef(null);
-
-  // const handleFontSize = () => {
-  //   const titleLength = movieData.Title.length;
-  //   const maxFontSize = 30; // Define your maximum font size in pixels
-
-  //   if (titleLength > 30) {
-  //     // Adjust the threshold as needed
-  //     const reducedFontSize = maxFontSize * (30 / titleLength); // Calculate reduced font size
-  //     cardTitleRef.current.style.fontSize = `${reducedFontSize}px`; // Set the font size
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   handleFontSize();
-  // }, [movieData.Title]);
-
   if (!movieData || Object.keys(movieData).length === 0) {
     return <div>No movie data available</div>;
   }
@@ -40,7 +23,7 @@ const Cards = ({ movieData }) => {
               movieData.imdbID
             )}`}
           >
-            <button>Go</button>
+            <button>Details</button>
           </Link>
         </div>
       </div>
