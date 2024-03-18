@@ -59,11 +59,20 @@ const MovieSearch = () => {
           ></input>
         </div>
       </div>
-      <div className={styles.horizontal}>
-        {searchMovies.map((movie, index) => {
-          return <Cards movieData={movie} key={index}></Cards>;
-        })}
-      </div>
+      {isLoading ? (
+        <div className={styles.loading}>
+          <div className={styles.lds_ripple}>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      ) : (
+        <div className={styles.horizontal}>
+          {searchMovies.map((movie, index) => {
+            return <Cards movieData={movie} key={index}></Cards>;
+          })}
+        </div>
+      )}
     </>
   );
 };

@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import NotesModal from "../components/NotesModal";
 import styles from "./FavouritesDisplay.module.css";
 
-const FavouritesDisplay = ({ favourites, unfavourite }) => {
+const FavouritesDisplay = ({
+  favourites,
+  unfavourite,
+  toggleNotesModal,
+  showNotesModal,
+  setShowNotesModal,
+}) => {
   const airtable_apiKey = import.meta.env.VITE_AIRTABLE_API_KEY;
 
-  const [showNotesModal, setShowNotesModal] = useState(false);
+  //const [showNotesModal, setShowNotesModal] = useState(false);
   //state to track the id of the movie selected
   const [selectedMovieId, setSelectedMovieId] = useState(null);
 
@@ -17,14 +23,6 @@ const FavouritesDisplay = ({ favourites, unfavourite }) => {
     setShowNotesModal(true);
   };
 
-  if (favourites === null) {
-    return (
-      <div className={styles.lds_ripple}>
-        <div></div>
-        <div></div>
-      </div>
-    );
-  }
   if (favourites.length === 0) {
     return (
       <div className={styles.lds_ripple}>
@@ -33,6 +31,12 @@ const FavouritesDisplay = ({ favourites, unfavourite }) => {
       </div>
     );
   }
+
+  if (favourites === null) {
+    console.log(favourites);
+    return <div>empty</div>;
+  }
+
   return (
     <>
       <div>
@@ -90,7 +94,7 @@ const FavouritesDisplay = ({ favourites, unfavourite }) => {
                 movie_img={record.fields.movie_img}
                 imdb_id={record.fields.imdb_id}
                 airtable_apiKey={airtable_apiKey}
-                setShowNotesModal={setShowNotesModal}
+                setShowNotesModal={toggleNotesModal}
               ></NotesModal>
             )}
           </div>

@@ -7,10 +7,6 @@ const Notes = (props) => {
   const [notes, setNotes] = useState(props.notes);
 
   const updateNotes = async () => {
-    console.log(props.imdb_id);
-    console.log(props.title);
-    console.log(props.movie_img);
-    console.log(props.airtable_apiKey);
     const res = await fetch(
       `https://api.airtable.com/v0/appWunuVeHtLUeYu4/Table%201/${props.recordId}`,
       {

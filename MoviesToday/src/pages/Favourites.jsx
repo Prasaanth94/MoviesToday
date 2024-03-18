@@ -3,6 +3,7 @@ import FavouritesDisplay from "./FavouritesDisplay";
 
 const Favourites = () => {
   const [favourites, setFavourites] = useState([]);
+  const [showNotesModal, setShowNotesModal] = useState(false);
   const airtable_apiKey = import.meta.env.VITE_AIRTABLE_API_KEY;
 
   const fetchFavourites = async (signal) => {
@@ -29,6 +30,11 @@ const Favourites = () => {
         console.log(error.message);
       }
     }
+  };
+
+  const toggleNotesModal = () => {
+    setShowNotesModal(false);
+    fetchFavourites();
   };
 
   const unfavourite = async (recordId) => {
@@ -64,13 +70,14 @@ const Favourites = () => {
     };
   }, []);
 
-  console.log(favourites);
-
   return (
     <div>
       <FavouritesDisplay
         favourites={favourites}
         unfavourite={unfavourite}
+        toggleNotesModal={toggleNotesModal}
+        showNotesModal={showNotesModal}
+        setShowNotesModal={setShowNotesModal}
       ></FavouritesDisplay>
     </div>
   );
