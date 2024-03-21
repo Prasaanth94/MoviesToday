@@ -23,7 +23,7 @@ const MovieSearch = () => {
         throw new Error("Failed to fetch data");
       }
       const data = await res.json();
-      console.log("Data received:", data);
+
       if (data.Search) {
         setSearchMovies(data.Search);
       }
